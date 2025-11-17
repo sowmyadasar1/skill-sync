@@ -1,4 +1,3 @@
-// src/app/login/page.tsx
 'use client';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -15,7 +14,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { DevConnectLogo, GithubIcon } from '@/components/icons';
+import { GithubIcon } from '@/components/icons';
 import { Loader2 } from 'lucide-react';
 import { useAuth } from '@/hooks/use-auth';
 
@@ -43,12 +42,10 @@ export default function LoginPage() {
       const additionalUserInfo = getAdditionalUserInfo(result);
       const githubUsername = (additionalUserInfo?.profile as any)?.login;
 
-
       const userDocRef = doc(db, 'users', user.uid);
       const userDocSnap = await getDoc(userDocRef);
 
       if (!userDocSnap.exists()) {
-        // New user: create the full profile
         await setDoc(userDocRef, {
           uid: user.uid,
           displayName: user.displayName,
@@ -62,7 +59,6 @@ export default function LoginPage() {
           joinedProjects: [],
         });
       } else {
-        // Existing user: update their profile to ensure githubUsername is synced.
         await setDoc(userDocRef, {
           displayName: user.displayName,
           email: user.email,
@@ -86,12 +82,12 @@ export default function LoginPage() {
       setIsLoading(false);
     }
   };
-  
+
   if (isAuthLoading || user) {
     return (
-        <div className="flex items-center justify-center min-h-screen">
-            <Loader2 className="size-12 animate-spin text-primary" />
-        </div>
+      <div className="flex items-center justify-center min-h-screen">
+        <Loader2 className="size-12 animate-spin text-primary" />
+      </div>
     );
   }
 
@@ -100,7 +96,7 @@ export default function LoginPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <Link href="/" className="mx-auto mb-4">
-            <DevConnectLogo className="size-12 text-primary" />
+            {/* DevConnectLogo removed */}
           </Link>
           <CardTitle className="text-2xl font-headline">Welcome to DevConnect</CardTitle>
           <CardDescription>
@@ -117,10 +113,10 @@ export default function LoginPage() {
             {isLoading ? (
               <Loader2 className="animate-spin" />
             ) : (
-                <>
-                    <GithubIcon className="mr-2 size-4 fill-current" />
-                    Sign in with GitHub
-                </>
+              <>
+                <GithubIcon className="mr-2 size-4 fill-current" />
+                Sign in with GitHub
+              </>
             )}
           </Button>
         </CardContent>

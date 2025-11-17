@@ -1,4 +1,3 @@
-
 'use client';
 import type { ReactNode } from 'react';
 import { useEffect } from 'react';
@@ -29,7 +28,8 @@ import {
   Search,
 } from 'lucide-react';
 import Link from 'next/link';
-import { DevConnectLogo } from './icons';
+// ❌ Removed DevConnectLogo import
+// import { DevConnectLogo } from './icons';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { Button } from './ui/button';
 import {
@@ -88,50 +88,49 @@ export function AppLayout({ children }: { children: ReactNode }) {
   }, [isFirebaseEnabled, isLoading, user, isProtectedRoute, isLandingPage, router]);
 
   if (isAuthPage || (isLandingPage && !user)) {
-     return (
-        <main className="flex-1 overflow-y-auto">
-            <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b bg-background/80 px-4 backdrop-blur-sm sm:px-6">
-                <Link href="/" className="flex items-center gap-2">
-                    <DevConnectLogo className="size-8 text-primary" />
-                    <h2 className="text-xl font-bold font-headline">
-                    DevConnect
-                    </h2>
-                </Link>
-                <div className="flex items-center gap-4 ml-auto">
-                    {!user && isFirebaseEnabled && (
-                        <Button asChild>
-                            <Link href="/login"><LogIn className="mr-2" /> Login</Link>
-                        </Button>
-                    )}
-                </div>
-            </header>
-            {!isFirebaseEnabled && (
-                <div className="w-full bg-destructive text-destructive-foreground p-3 text-center text-sm">
-                    Firebase is not configured. Please add your credentials to the <code>.env</code> file to enable authentication.
-                </div>
+    return (
+      <main className="flex-1 overflow-y-auto">
+        <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b bg-background/80 px-4 backdrop-blur-sm sm:px-6">
+          <Link href="/" className="flex items-center gap-2">
+            {/* DevConnectLogo removed */}
+            <h2 className="text-xl font-bold font-headline">
+              DevConnect
+            </h2>
+          </Link>
+          <div className="flex items-center gap-4 ml-auto">
+            {!user && isFirebaseEnabled && (
+              <Button asChild>
+                <Link href="/login"><LogIn className="mr-2" /> Login</Link>
+              </Button>
             )}
-            <div className="p-4 md:p-6 lg:p-8">
-              {children}
-            </div>
-        </main>
+          </div>
+        </header>
+        {!isFirebaseEnabled && (
+          <div className="w-full bg-destructive text-destructive-foreground p-3 text-center text-sm">
+            Firebase is not configured. Please add your credentials to the <code>.env</code> file to enable authentication.
+          </div>
+        )}
+        <div className="p-4 md:p-6 lg:p-8">
+          {children}
+        </div>
+      </main>
     );
   }
 
-  // Show a full-page loader while auth state is loading for protected routes.
   if (isFirebaseEnabled && isLoading) {
     return (
-        <div className="flex h-screen w-full items-center justify-center bg-background">
-            <Loader2 className="size-12 animate-spin text-primary" />
-        </div>
+      <div className="flex h-screen w-full items-center justify-center bg-background">
+        <Loader2 className="size-12 animate-spin text-primary" />
+      </div>
     );
   }
-  
+
   return (
     <SidebarProvider>
       <Sidebar>
         <SidebarHeader className='p-4'>
           <Link href="/dashboard" className="flex items-center gap-2">
-            <DevConnectLogo className="size-8 text-primary" />
+            {/* DevConnectLogo removed */}
             <h2 className="text-xl font-bold font-headline group-data-[collapsible=icon]:hidden">
               DevConnect
             </h2>
@@ -196,28 +195,27 @@ export function AppLayout({ children }: { children: ReactNode }) {
                   <DropdownMenuLabel>{user.displayName || user.email}</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild>
-                      <Link href="/profile"><User className="mr-2" />Profile</Link>
+                    <Link href="/profile"><User className="mr-2" />Profile</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={handleLogout}>
-                    <LogOut className="mr-2" />
-                    Logout
+                    <LogOut className="mr-2" /> Logout
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-                isFirebaseEnabled && <Button asChild>
-                    <Link href="/login"><LogIn className="mr-2" /> Login</Link>
-                </Button>
+              isFirebaseEnabled && <Button asChild>
+                <Link href="/login"><LogIn className="mr-2" /> Login</Link>
+              </Button>
             )}
           </div>
         </header>
         <main className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8">
-            {!isFirebaseEnabled && (
-                 <div className="bg-destructive text-destructive-foreground p-3 text-center text-sm mb-4 rounded-md">
-                    Firebase is not configured. Please add your credentials to the <code>.env</code> file. Authentication and database features are disabled.
-                </div>
-            )}
-            {children}
+          {!isFirebaseEnabled && (
+            <div className="bg-destructive text-destructive-foreground p-3 text-center text-sm mb-4 rounded-md">
+              Firebase is not configured. Please add your credentials to the <code>.env</code> file. Authentication and database features are disabled.
+            </div>
+          )}
+          {children}
         </main>
       </SidebarInset>
     </SidebarProvider>
