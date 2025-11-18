@@ -56,7 +56,7 @@ export default function DashboardPage() {
           Welcome to your Dashboard
         </h1>
         <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-          From here you can access all the features of DevConnect.
+          From here you can access all the features of Skillync.
         </p>
         <div className="mt-8 flex justify-center gap-4">
           <Button asChild size="lg">

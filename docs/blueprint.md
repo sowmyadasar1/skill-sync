@@ -1,4 +1,4 @@
-# **App Name**: DevConnect
+# **App Name**: Skillync
 
 ## Core Features:
 

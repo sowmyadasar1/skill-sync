@@ -57,7 +57,7 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center p-4 md:p-8 animate-fade-in">
         <div className="text-center max-w-4xl mx-auto pt-16 md:pt-24">
           <h1 className="text-5xl md:text-7xl font-bold font-headline tracking-tighter animate-shimmer bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] bg-clip-text text-transparent dark:bg-[linear-gradient(110deg,#fff,45%,#d8d8d8,55%,#fff)]">
-            Welcome to DevConnect
+            Welcome to Skillync
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in [animation-delay:400ms]">
             Your central platform to connect with tech-interested students,

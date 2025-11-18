@@ -96,9 +96,9 @@ export default function LoginPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <Link href="/" className="mx-auto mb-4">
-            {/* DevConnectLogo removed */}
+            {/* SkillyncLogo removed */}
           </Link>
-          <CardTitle className="text-2xl font-headline">Welcome to DevConnect</CardTitle>
+          <CardTitle className="text-2xl font-headline">Welcome to Skillync</CardTitle>
           <CardDescription>
             Sign in with your GitHub account to continue.
           </CardDescription>

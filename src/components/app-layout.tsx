@@ -28,8 +28,8 @@ import {
   Search,
 } from 'lucide-react';
 import Link from 'next/link';
-// ❌ Removed DevConnectLogo import
-// import { DevConnectLogo } from './icons';
+// ❌ Removed SkillyncLogo import
+// import { SkillyncLogo } from './icons';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { Button } from './ui/button';
 import {
@@ -92,9 +92,9 @@ export function AppLayout({ children }: { children: ReactNode }) {
       <main className="flex-1 overflow-y-auto">
         <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b bg-background/80 px-4 backdrop-blur-sm sm:px-6">
           <Link href="/" className="flex items-center gap-2">
-            {/* DevConnectLogo removed */}
+            {/* SkillyncLogo removed */}
             <h2 className="text-xl font-bold font-headline">
-              DevConnect
+              Skillync
             </h2>
           </Link>
           <div className="flex items-center gap-4 ml-auto">
@@ -130,9 +130,9 @@ export function AppLayout({ children }: { children: ReactNode }) {
       <Sidebar>
         <SidebarHeader className='p-4'>
           <Link href="/dashboard" className="flex items-center gap-2">
-            {/* DevConnectLogo removed */}
+            {/* SkillyncLogo removed */}
             <h2 className="text-xl font-bold font-headline group-data-[collapsible=icon]:hidden">
-              DevConnect
+              Skillync
             </h2>
           </Link>
         </SidebarHeader>
