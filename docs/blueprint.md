@@ -1,4 +1,4 @@
-# **App Name**: Skillync
+# **App Name**: SkillSync
 
 ## Core Features:
 

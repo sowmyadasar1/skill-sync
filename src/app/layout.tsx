@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { AuthProvider } from '@/hooks/use-auth';
 
 export const metadata: Metadata = {
-  title: 'Skillync',
+  title: 'SkillSync',
   description: 'A Campus Developer Hub Web App',
 };
 
